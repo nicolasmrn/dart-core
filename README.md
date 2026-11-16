@@ -19,6 +19,14 @@ Designed with a compact **2-stage pipeline** (`Fetch` / `Decode & Execute`), it 
 
 ---
 
+## Verification & Simulation
+
+The RTL modules (`fetchUnit`, `Decode`, `ALU`, `RegFile`, `csr`) and top-level integration (`top.scala`) were functionally validated using **Verilator** and waveform inspection (**Surfer**):
+* **Instruction Set Validation:** Execution of custom RV32E assembly routines covering arithmetic/logic operations, memory load/store accesses, and CSR read/write instructions.
+* **Pipeline & Control Hazard Testing:** Targeted branch (`BEQ`, `BNE`, `BLT`, `BGE`) and jump (`JAL`, `JALR`) sequences verifying cycle-accurate PC redirection and pipeline flush behavior.
+
+---
+
 ## Microarchitecture
 
 The core is partitioned into two main pipeline stages separated by synchronous pipeline registers (`PipelineReg.scala`):
